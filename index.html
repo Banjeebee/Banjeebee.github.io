@@ -3,86 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | Ire</title>
+    <title>Ire | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f0f2f5;
-            color: #333;
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
         }
+
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            transition: 0.3s;
+        }
+
         nav {
-            background: #24292e; /* GitHub's Dark Theme Color */
-            padding: 1rem;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
-        nav协调 a {
-            color: white;
+
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+
+        .nav-links a {
+            margin-left: 20px;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            color: var(--text);
+            font-weight: 500;
         }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--primary), #9333ea);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 3rem;
         }
-        h1 { color: #007bff; }
-        .project-card {
-            border-left: 5px solid #007bff;
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: left;
+
+        .profile-img {
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 1rem;
         }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* This makes it a circle */
-            border: 5px solid #007bff;
-            margin-top: -75px; /* Pulls it up halfway over the header */
-            background: white;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        .header-bg {
-            height: 150px;
-            background: #007bff;
-            border-radius: 12px 12px 0 0;
-            margin: -20px -20px 20px -20px;
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
-    <nav style="background: #333; padding: 10px; margin-bottom: 20px;">
-        <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-        <a href="#projects" style="color: white; margin: 0 15px; text-decoration: none;">Projects</a>
-        <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+    <nav>
+        <div class="logo">DevPortfolio</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <button id="theme-toggle">🌙 Mode</button>
+        </div>
     </nav>
 
     <div class="container">
-        <h1>Welcome to My Digital Space!</h1>
-        <p>Hi, I am Ire. I am a student and aspiring developer.</p>
+        <header>
+            <img src="https://github.com/Banjeebee.png" class="profile-img" alt="Profile">
+            <h1>Hi, I'm Ire</h1>
+            <p>Aspiring Developer | Student at [School Name]</p>
+            <div style="margin-top: 1rem;">
+                <a href="mailto:email@example.com" class="btn">Hire Me</a>
+            </div>
+        </header>
 
-        <div class="header-bg"></div>
-        <img src="https://github.com/[username].png" alt="Profile Picture" class="profile-pic">
-        
-        <h1>Ire]</h1>
-        <p>STEM Student | Aspiring Web Developer</p>
-        
-        <hr>
+        <section id="about">
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <div class="card">
+                <p>I am a STEM student learning under the mentorship of <strong>Techbase Consultant Services</strong>. I specialize in building creative solutions using modern web technologies.</p>
+            </div>
+        </section>
 
-        <h3 id="projects">My Projects</h3>
-        <p>Currently working on my first GitHub website!</p>
-
-        <h3 id="contact">Get in Touch</h3>
-        <p>You can find me on GitHub at: <a href="https://github.com/Banjeebee">github.com/Banjeebee</a></p>
+        <section id="projects" style="margin-top: 3rem;">
+            <h2><i class="fas fa-code"></i> My Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Scientific Calculator</h3>
+                    <p>A web-based calculator built with HTML, CSS, and JS to solve physics equations.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+                <div class="card">
+                    <h3>Atmospheric Data Visualizer</h3>
+                    <p>Modeling solar radiation data using simplified Python and Web tools.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggle.addEventListener('click', () => {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            toggle.textContent = isDark ? '🌙 Mode' : '☀️ Mode';
+        });
+    </script>
 </body>
 </html>
