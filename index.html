@@ -6,20 +6,41 @@
     <title>My Portfolio | Ire</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        nav {
+            background: #24292e; /* GitHub's Dark Theme Color */
+            padding: 1rem;
             text-align: center;
-            padding: 50px;
-            background-color: #f4f4f4;
+            position: sticky;
+            top: 0;
         }
-        .card {
-            background: white;
+        nav协调 a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
             padding: 20px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        h1 { color: #333; }
-        p { color: #666; }
+        h1 { color: #007bff; }
+        .project-card {
+            border-left: 5px solid #007bff;
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +51,7 @@
         <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
     </nav>
 
-    <div class="card">
+    <div class="container">
         <h1>Welcome to My Digital Space!</h1>
         <p>Hi, I am Ire. I am a student and aspiring developer.</p>
         
