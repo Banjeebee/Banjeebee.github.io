@@ -311,7 +311,16 @@
   .card-name{font-family:var(--disp); font-weight:600; font-size:1.08rem;}
   .card-arrow{color:var(--muted); transition:transform .2s ease, color .2s ease;}
   .card:hover .card-arrow{color:var(--blue-bright); transform:translate(3px,-3px);}
-  .card-desc{color:var(--muted); font-size:0.9rem; flex:1; margin-bottom:18px;}
+  .card-desc{color:var(--muted); font-size:0.9rem; flex:1; margin-bottom:14px;}
+  .demo-link{
+    font-family:var(--mono); font-size:0.76rem;
+    color:var(--blue-bright);
+    margin-bottom:14px;
+    width:fit-content;
+    border-bottom:1px solid var(--blue-dim);
+    padding-bottom:2px;
+  }
+  .demo-link:hover{border-color:var(--blue-bright);}
   .card-meta{
     display:flex; align-items:center; gap:14px;
     font-family:var(--mono); font-size:0.76rem; color:var(--muted);
@@ -499,6 +508,7 @@
         const lang = r.language || 'Code';
         const color = LANG_COLORS[lang] || '#5aa9ff';
         const updated = new Date(r.pushed_at).toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+        const demoLink = r.homepage ? `<a class="demo-link" href="${r.homepage}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Live demo ↗</a>` : '';
         return `
           <a class="card" href="${r.html_url}" target="_blank" rel="noopener">
             <div class="card-top">
@@ -506,10 +516,11 @@
               <span class="card-arrow">↗</span>
             </div>
             <p class="card-desc">${desc}</p>
+            ${demoLink}
             <div class="card-meta">
               <span class="lang"><span class="lang-dot" style="background:${color}"></span>${lang}</span>
               <span>★ ${r.stargazers_count}</span>
-              <span>${updated}</span>
+              <span>updated ${updated}</span>
             </div>
           </a>`;
       }).join('');
@@ -520,6 +531,7 @@
         <a class="card" href="https://github.com/Banjeebee/smart-form-validator" target="_blank" rel="noopener">
           <div class="card-top"><span class="card-name">smart-form-validator</span><span class="card-arrow">↗</span></div>
           <p class="card-desc">A JavaScript form validation utility.</p>
+          <a class="demo-link" href="https://banjeebee.github.io/smart-form-validator/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Live demo ↗</a>
           <div class="card-meta"><span class="lang"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span></div>
         </a>
         <div class="card placeholder">Live sync unavailable right now — visit GitHub directly.</div>`;
